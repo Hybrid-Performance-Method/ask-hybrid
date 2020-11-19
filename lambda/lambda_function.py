@@ -13,6 +13,7 @@ from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
 from ask_sdk_core.handler_input import HandlerInput
+from ask_sdk_model.ui import SimpleCard
 
 from ask_sdk_model import Response
 
@@ -76,13 +77,10 @@ class MacrosRequestHandler(AbstractRequestHandler):
         {} grams of carbohydrates, \
         and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
         
+        card_title = "Hybrid Nutrition Tracker Assistant"
         
-        return (
-            handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .response
-        )
+        return handler_input.response_builder.speak(speech_text).set_card(
+            SimpleCard(card_title, card_text)).response
 
         
 class HelloWorldIntentHandler(AbstractRequestHandler):
