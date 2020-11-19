@@ -48,7 +48,12 @@ class MacrosRequestHandler(AbstractRequestHandler):
         input = handler_input['request']['intent']['slots']['FoodSentence']['value']
         speak_output = "you asked {}".format(input)
         
-        
+        return (
+            handler_input.response_builder
+                .speak(speak_output)
+                .ask(speak_output)
+                .response
+        )
         
 
 
