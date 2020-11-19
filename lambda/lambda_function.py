@@ -78,7 +78,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
         {} grams of carbohydrates, \
         and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
         
-        reprompt = "I'm sorry, I didn't get that. Begin your question with \"ask hybrid \" \
+        reprompt = "I'm sorry, I didn't get that. Begin your question with \"ask hybrid\" \
         followed by the name and quantity of the food you want to track."
     
         card_title = "Hybrid Nutrition Tracker Assistant"
