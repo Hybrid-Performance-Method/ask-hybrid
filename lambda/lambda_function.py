@@ -36,6 +36,17 @@ class LaunchRequestHandler(AbstractRequestHandler):
                 .response
         )
 
+class MacrosRequestHandler(AbstractRequestHandler):
+    """Handler for Macros Questions"""
+    def can_handle(self, handler_input):
+        # type: (HandlerInput) -> bool
+
+        return ask_utils.is_intent_name("macros")(handler_input)
+    
+    def handle(self, handler_input):
+        
+        
+
 
 class HelloWorldIntentHandler(AbstractRequestHandler):
     """Handler for Hello World Intent."""
@@ -45,7 +56,7 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Hello World!"
+        speak_output = "Hello from the rest of the hybrid team!"
 
         return (
             handler_input.response_builder
