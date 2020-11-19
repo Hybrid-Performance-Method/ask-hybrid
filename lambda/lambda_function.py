@@ -29,7 +29,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome to Hybrid Nutrition! How can we help with your tracking?"
+        speak_output = "Welcome to the Hybrid Nutrition virtual assistant! How can we help with your tracking?"
 
         return (
             handler_input.response_builder
@@ -92,7 +92,7 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Hello from the rest of the hybrid team! remember to begin questions with ask hybrid"
+        speak_output = "Hello from the rest of the hybrid team! remember to begin tracking questions with ask hybrid"
 
         return (
             handler_input.response_builder
