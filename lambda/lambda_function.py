@@ -77,16 +77,14 @@ class MacrosRequestHandler(AbstractRequestHandler):
         {} grams of carbohydrates, \
         and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
         
-        reprompt = "I'm sorry, I didn't get that. Begin your question with \"ask hybrid\" \
-        followed by the name and quantity of the food you want to track."
-    
-        
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                #.ask(speak_output)
+                .ask(speak_output)
                 .response
         )
+        
+
         
 
 class HelloWorldIntentHandler(AbstractRequestHandler):
