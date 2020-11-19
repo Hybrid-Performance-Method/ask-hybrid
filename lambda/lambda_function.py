@@ -13,7 +13,6 @@ from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
 from ask_sdk_core.handler_input import HandlerInput
-from ask_sdk_core.utils import is_intent_name, get_slot_value
 
 from ask_sdk_model import Response
 
