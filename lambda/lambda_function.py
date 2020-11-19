@@ -78,6 +78,8 @@ class MacrosRequestHandler(AbstractRequestHandler):
         {} grams of carbohydrates, \
         and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
         
+        card_title = "Hybrid Nutrition Virtual Assistant"
+        card_text = speak_output
         
         return (
             handler_input.response_builder
