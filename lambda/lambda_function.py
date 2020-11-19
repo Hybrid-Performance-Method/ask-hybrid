@@ -84,7 +84,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask(reprompt)
+                .ask(speak_output)
                 .response
         )
         
