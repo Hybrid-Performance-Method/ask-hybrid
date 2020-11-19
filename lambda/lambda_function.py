@@ -34,7 +34,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
          your macros. What are you eating today?"
         
         reprompt = "I am sorry, begin your question with \"ask hybrid \" followed by the name and quantity\
-        of the food you want to track"
+         of the food you want to track"
         return (
             handler_input.response_builder
                 .speak(speak_output)
