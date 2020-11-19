@@ -48,7 +48,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
         
         slot = ask_utils.request_util.get_slot(handler_input, "FoodSentence")
         
-        speak_output = "you asked about {}".format(slot['value'])
+        speak_output = "you asked about {}".format(slot.value)
 
         return (
             handler_input.response_builder
