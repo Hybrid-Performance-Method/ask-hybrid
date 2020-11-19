@@ -84,7 +84,6 @@ class MacrosRequestHandler(AbstractRequestHandler):
         )
         
 
-
 class HelloWorldIntentHandler(AbstractRequestHandler):
     """Handler for Hello World Intent."""
     def can_handle(self, handler_input):
