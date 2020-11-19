@@ -76,12 +76,12 @@ class MacrosRequestHandler(AbstractRequestHandler):
         and {} grams of fat \
         for a total of {} calories".format(ingredient['food'], protein, carbs, fat, cals)
         
-        
+        reprompt_text = "Are there any other foods you would like to track?"
         
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask("Are there any other foods you would like to track?")
+                .ask(reprompt_text)
                 .response
         )
         
