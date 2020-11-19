@@ -47,7 +47,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        input = handler_input['request']['intent']['slots']['FoodSentence']['value']
+        #input = handler_input['request']['intent']['slots']['FoodSentence']['value']
         speak_output = "you asked me about macros"
 
         return (
