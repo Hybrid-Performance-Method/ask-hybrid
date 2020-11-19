@@ -27,7 +27,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome to Hybrid Nutrition! How can we help?"
+        speak_output = "Welcome to Hybrid Nutrition! How can we help with your tracking?"
 
         return (
             handler_input.response_builder
@@ -43,11 +43,12 @@ class MacrosRequestHandler(AbstractRequestHandler):
 
         return ask_utils.is_intent_name("macros")(handler_input)
     
-    def handle(self, handler_input):
         
         #input = handler_input['request']['intent']['slots']['FoodSentence']['value']
+    def handle(self, handler_input):
+        # type: (HandlerInput) -> Response
         speak_output = "you asked about macros"
-        
+
         return (
             handler_input.response_builder
                 .speak(speak_output)
