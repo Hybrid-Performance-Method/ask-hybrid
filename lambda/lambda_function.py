@@ -87,7 +87,6 @@ class MacrosRequestHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .set_card(SimpleCard(card_title, card_text))
                 .ask(reprompt)
                 .response
         )
