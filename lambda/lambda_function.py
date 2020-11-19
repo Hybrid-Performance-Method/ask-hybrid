@@ -73,8 +73,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
         
         speak_output = "A {} has about {} grams of protein, \
         {} grams of carbohydrates, \
-        and {} grams of fat \
-        for a total of {} calories".format(ingredient['food'], protein, carbs, fat, cals)
+        and {} grams of fat.".format(ingredient['food'], protein, carbs, fat, cals)
         
         reprompt_text = "Are there any other foods you would like to track?"
         
