@@ -70,17 +70,17 @@ class MacrosRequestHandler(AbstractRequestHandler):
         if data['calories'] == 0:
             speak_output = "Either you didn't select a valid food, or it has no calories,\
             which means it is not food. Please try again."
-        
-        ingredient = data['ingredients'][0]['parsed'][0]
-        protein = round(ingredient['nutrients']['PROCNT']['quantity'])
-        carbs  = round(ingredient['nutrients']['CHOCDF']['quantity'])
-        fat = round(ingredient['nutrients']['FAT']['quantity'])
-        # cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
-        
-        speak_output = "A {} has about {} grams of protein, \
-        {} grams of carbohydrates, \
-        and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
-        
+        else:
+            ingredient = data['ingredients'][0]['parsed'][0]
+            protein = round(ingredient['nutrients']['PROCNT']['quantity'])
+            carbs  = round(ingredient['nutrients']['CHOCDF']['quantity'])
+            fat = round(ingredient['nutrients']['FAT']['quantity'])
+            # cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
+            
+            speak_output = "A {} has about {} grams of protein, \
+            {} grams of carbohydrates, \
+            and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
+            
         card_title = "Hybrid Nutrition Tracker Assistant"
         
         return handler_input.response_builder.speak(speak_output).set_card(
