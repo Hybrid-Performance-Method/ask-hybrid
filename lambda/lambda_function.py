@@ -53,7 +53,29 @@ class MacrosRequestHandler(AbstractRequestHandler):
         slot = ask_utils.request_util.get_slot(handler_input, "FoodSentence")
         slot_value = slot.value
         
-        speak_output = slot_value
+        url = 'https://api.edamam.com/api/nutrition-data'
+        
+        params = {
+            'app_id':'da0f7443', 
+            'app_key':'50dee54b60a3301ca8da3f7d7026e812',
+            'ingr': slot_value,
+            'nutrition-type': 'logging'
+        }
+        
+        r = requests.get(url, params=params)
+        data = json.loads(r.text)
+        
+        ingredient = data['ingredients'][0]['parsed'][0]
+        protein = round(ingredient['nutrients']['PROCNT']['quantity'])
+        carbs  = round(ingredient['nutrients']['CHOCDF']['quantity'])
+        fat = round(ingredient['nutrients']['FAT']['quantity'])
+        cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
+        
+        speak_output = "A {} has about {} grams of protein, \
+        {} grams of carbohydrates, \
+        and {} grams of fat \
+        for a total of {} calories".format(ingredient['food'], protein, carbs, fat, cals)
+        
         return (
             handler_input.response_builder
                 .speak(speak_output)
@@ -61,7 +83,6 @@ class MacrosRequestHandler(AbstractRequestHandler):
                 .response
         )
         
-
 
 class HelloWorldIntentHandler(AbstractRequestHandler):
     """Handler for Hello World Intent."""
