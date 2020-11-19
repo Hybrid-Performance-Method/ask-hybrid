@@ -52,8 +52,30 @@ class MacrosRequestHandler(AbstractRequestHandler):
         # returns slot value 
         slot = ask_utils.request_util.get_slot(handler_input, "FoodSentence")
         slot_value = json.dumps(slot.value)
+
+        url = 'https://api.edamam.com/api/nutrition-data'
         
-        speak_output = slot_value
+        params = {
+            'app_id':'da0f7443', 
+            'app_key':'50dee54b60a3301ca8da3f7d7026e812',
+            'ingr': slot_value,
+            'nutrition-type': 'logging'
+        }
+        
+        r = requests.get(url, params=params)
+        data = json.loads(r.text)
+        
+        ingredients = data['ingredients'][0]['parsed']
+        for ingredient in ingredients:
+            protein= round(ingredient['nutrients']['PROCNT']['quantity'])
+            carbs  = round(ingredient['nutrients']['CHOCDF']['quantity'])
+            fat = round(ingredient['nutrients']['FAT']['quantity'])
+            cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
+        
+        speak_output = "A {} has about {} grams of protein, \
+        {} grams of carbohydrates, \
+        and {} grams of fat \
+        for a total of {} calories".format(ingredients['food'], protein, carbs, fat, cals)
         
         return (
             handler_input.response_builder
