@@ -98,7 +98,7 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Hello from the rest of the hybrid team! remember to begin tracking questions with ask hybrid"
+        speak_output = "Whats up my baby! how's the hybrid life treating you? remember to begin tracking questions with ask hybrid"
 
         return (
             handler_input.response_builder
