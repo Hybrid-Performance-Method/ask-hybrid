@@ -48,8 +48,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        sentence = json.dumps(handler_input['request']['intent']['slots']['FoodSentence']['value'])
-        speak_output = "you asked me about macros {}".format(sentence)
+        speak_output = "you asked about macros"
 
         return (
             handler_input.response_builder
