@@ -51,7 +51,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
         
         # returns slot value 
         slot = ask_utils.request_util.get_slot(handler_input, "FoodSentence")
-        slot_value = json.dumps(slot.value)
+        slot_value = slot.value
 
         url = 'https://api.edamam.com/api/nutrition-data'
         
