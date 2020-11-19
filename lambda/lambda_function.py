@@ -65,12 +65,11 @@ class MacrosRequestHandler(AbstractRequestHandler):
         r = requests.get(url, params=params)
         data = json.loads(r.text)
         
-        ingredients = data['ingredients'][0]['parsed']
-        for ingredient in ingredients:
-            protein= round(ingredient['nutrients']['PROCNT']['quantity'])
-            carbs  = round(ingredient['nutrients']['CHOCDF']['quantity'])
-            fat = round(ingredient['nutrients']['FAT']['quantity'])
-            cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
+        ingredient = data['ingredients'][0]['parsed'][0]
+        protein = round(ingredient['nutrients']['PROCNT']['quantity'])
+        carbs  = round(ingredient['nutrients']['CHOCDF']['quantity'])
+        fat = round(ingredient['nutrients']['FAT']['quantity'])
+        cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
         
         speak_output = "A {} has about {} grams of protein, \
         {} grams of carbohydrates, \
