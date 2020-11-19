@@ -38,7 +38,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask(reprompt)
+                .ask(speak_output)
                 .response
         )
 
@@ -79,12 +79,13 @@ class MacrosRequestHandler(AbstractRequestHandler):
         {} grams of carbohydrates, \
         and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
         
-        reprompt_text = "Are there any other foods you would like to track?"
+        reprompt = "I'm sorry, I didn't get that. Begin your question with \"ask hybrid \" \
+        followed by the name and quantity of the food you want to track."
         
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask(reprompt_text)
+                .ask(reprompt)
                 .response
         )
         
