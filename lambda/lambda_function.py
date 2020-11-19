@@ -67,6 +67,10 @@ class MacrosRequestHandler(AbstractRequestHandler):
         r = requests.get(url, params=params)
         data = json.loads(r.text)
         
+        if data['calories'] == 0:
+            speak_output = "Either you didn't select a valid food, or it has no calories,\
+            which means it is not food. Please try again."
+        
         ingredient = data['ingredients'][0]['parsed'][0]
         protein = round(ingredient['nutrients']['PROCNT']['quantity'])
         carbs  = round(ingredient['nutrients']['CHOCDF']['quantity'])
