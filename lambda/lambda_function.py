@@ -81,7 +81,10 @@ class MacrosRequestHandler(AbstractRequestHandler):
         card_title = "Hybrid Nutrition Virtual Assistant"
         
         return (
-            handler_input.response_builder.speak(speak_output).set_card(SimpleCard(card_title, speak_output)).response
+            handler_input.response_builder
+            .speak(speak_output)
+            .set_card(SimpleCard(card_title, speak_output))
+            .response
         )
 
         
