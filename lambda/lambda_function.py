@@ -30,12 +30,15 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome to the Hybrid Nutrition virtual assistant! How can we help with your tracking?"
-
+        speak_output = "Welcome to the Hybrid Nutrition virtual assistant! Ask hybrid for help tracking\
+         your macros. What are you eating today?"
+        
+        reprompt = "I am sorry, begin your question with \"ask hybrid \" followed by the name and quantity\
+        of the food you want to track"
         return (
             handler_input.response_builder
                 .speak(speak_output)
-                .ask(speak_output)
+                .ask(reprompt)
                 .response
         )
 
