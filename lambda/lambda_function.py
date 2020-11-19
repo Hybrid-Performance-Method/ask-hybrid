@@ -33,8 +33,6 @@ class LaunchRequestHandler(AbstractRequestHandler):
         speak_output = "Welcome to the Hybrid Nutrition virtual assistant! Ask hybrid for help tracking\
          your macros. What are you eating today?"
         
-        reprompt = "I'm sorry, I didn't get that. Begin your question with \"ask hybrid \" \
-        followed by the name and quantity of the food you want to track."
         return (
             handler_input.response_builder
                 .speak(speak_output)
