@@ -83,10 +83,8 @@ class MacrosRequestHandler(AbstractRequestHandler):
                 .ask(speak_output)
                 .response
         )
-        
 
         
-
 class HelloWorldIntentHandler(AbstractRequestHandler):
     """Handler for Hello World Intent."""
     def can_handle(self, handler_input):
