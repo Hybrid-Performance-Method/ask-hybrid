@@ -6,8 +6,6 @@
 # This sample is built using the handler classes approach in skill builder.
 import logging
 import ask_sdk_core.utils as ask_utils
-import json
-
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
@@ -48,7 +46,9 @@ class MacrosRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         
-        speak_output = "you asked about macros"
+        slot = ask_utils.request_util.get_slot(handler_input, "FoodSentence")
+        
+        speak_output = "you asked about {}".format(slot)
 
         return (
             handler_input.response_builder
