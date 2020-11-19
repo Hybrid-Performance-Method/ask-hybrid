@@ -27,7 +27,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome to Ask Hybrid! How can I help you with your tracking?"
+        speak_output = "Welcome to Hybrid Nutrition! How can we help?"
 
         return (
             handler_input.response_builder
