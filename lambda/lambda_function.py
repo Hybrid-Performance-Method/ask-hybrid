@@ -86,7 +86,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
                 .speak(speak_output)
                 .ask(speak_output)
                 .response
-        )
+                )
         
 
 class HelloWorldIntentHandler(AbstractRequestHandler):
