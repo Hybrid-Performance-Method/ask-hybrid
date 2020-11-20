@@ -84,7 +84,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
         card_title = "Hybrid Nutrition Tracker Assistant"
         
         return handler_input.response_builder.speak(speak_output).set_card(
-            SimpleCard(card_title, speak_output)).response
+            SimpleCard(card_title, speak_output)).set_should_end_session(False).response
 
         
 class HelloWorldIntentHandler(AbstractRequestHandler):
