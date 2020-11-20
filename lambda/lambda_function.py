@@ -30,8 +30,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome to the Hybrid Nutrition virtual assistant! Ask hybrid for help tracking\
-         your macros. What are you eating today?"
+        speak_output = "Welcome to the Hybrid Nutrition tracker assistant! What are you eating today?"
         
         return (
             handler_input.response_builder
@@ -77,9 +76,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
             fat = round(ingredient['nutrients']['FAT']['quantity'])
             # cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
             
-            speak_output = "A {} has about {} grams of protein, \
-            {} grams of carbohydrates, \
-            and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
+            speak_output = "A {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
             
         card_title = "Hybrid Nutrition Tracker Assistant"
         
@@ -96,7 +93,7 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         speak_output = "Whats up my baby! how's the hybrid life treating you?\
-        I want to help you stay on track. Remember to begin tracking questions with ask hybrid"
+         I'm here to help you stay on track."
 
         return (
             handler_input.response_builder
@@ -114,7 +111,7 @@ class HelpIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "You can say hello to me! How can I help? just ask hybrid."
+        speak_output = "If you are having trouble, just say hybrid question. then say ask hybrid followed by the food you want to track."
 
         return (
             handler_input.response_builder
@@ -192,7 +189,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         # type: (HandlerInput, Exception) -> Response
         logger.error(exception, exc_info=True)
 
-        speak_output = "Sorry, I had find that information for you. Please ask again."
+        speak_output = "Sorry, I missed that. Please ask hybrid again."
 
         return (
             handler_input.response_builder
