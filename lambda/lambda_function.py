@@ -114,7 +114,7 @@ class HelpIntentHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "If you are having trouble, just say hybrid question. Then say ask hybrid followed by the food you want to track."
+        speak_output = "If you are having trouble, start your question with \"ask hybrid\" followed by the food you want to track."
 
         return (
             handler_input.response_builder
