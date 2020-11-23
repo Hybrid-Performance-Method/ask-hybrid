@@ -30,7 +30,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        speak_output = "Welcome to the Hybrid Nutrition tracker assistant! What are you eating today?"
+        speak_output = "Welcome to the Hybrid Nutrition virtual assistant! What are you eating today?"
         
         return (
             handler_input.response_builder
