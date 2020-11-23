@@ -76,7 +76,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
             fat = round(ingredient['nutrients']['FAT']['quantity'])
             # cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
             
-            speak_output = "A {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat.".format(ingredient['food'], protein, carbs, fat)
+            speak_output = "{} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat.".format(ingredient['text'], protein, carbs, fat)
             
         card_title = "Hybrid Nutrition Tracker Assistant"
         
