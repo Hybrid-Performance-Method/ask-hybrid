@@ -97,6 +97,7 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
         return (
             handler_input.response_builder
                 .speak(speak_output)
+                .set_should_end_session(False).response
                 # .ask("add a reprompt if you want to keep the session open for the user to respond")
                 .response
         )
@@ -116,6 +117,7 @@ class HelpIntentHandler(AbstractRequestHandler):
             handler_input.response_builder
                 .speak(speak_output)
                 .ask(speak_output)
+                .set_should_end_session(False).response
                 .response
         )
 
@@ -194,6 +196,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
             handler_input.response_builder
                 .speak(speak_output)
                 .ask(speak_output)
+                .set_should_end_session(False)
                 .response
         )
 
