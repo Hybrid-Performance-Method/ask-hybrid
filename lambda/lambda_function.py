@@ -68,7 +68,7 @@ class MacrosRequestHandler(AbstractRequestHandler):
         
         if data['calories'] == 0:
             speak_output = "Either you didn't select a valid food, or it has no calories,\
-            which means it is not food. Please try again."
+            which means it is not food. Please ask again."
         else:
             ingredient = data['ingredients'][0]
             protein = round(ingredient['nutrients']['PROCNT']['quantity'])
