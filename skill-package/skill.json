@@ -1,0 +1,76 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Hybrid Nutrition virtual macro tracking assistant.",
+          "examplePhrases": [
+            "Alexa, HYBRID question",
+            "ask HYBRID about 8 ounces of cooked chicken breast",
+            "ask HYBRID how many macros are in one apple"
+          ],
+          "keywords": [
+            "fitness",
+            "health",
+            "workout",
+            "nutrition",
+            "cooking",
+            "recipes",
+            "education"
+          ],
+          "name": "Ask Hybrid",
+          "description": "Ask Hybrid how to track your macros using Alexa. Ael",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "updatesDescription": "This is a beta test",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        }
+      },
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "there are no permissions required. Invoke the skill, ask hybrid about a food, and alexa will tell you the macros. that\u0027s all it does.",
+      "category": "COOKING_AND_RECIPE",
+      "distributionCountries": []
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:007228707869:function:aeb4ac66-25c2-4f77-9c1c-c608c0bcaf45:Release_0"
+        },
+        "interfaces": [],
+        "regions": {
+          "EU": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:eu-west-1:007228707869:function:aeb4ac66-25c2-4f77-9c1c-c608c0bcaf45:Release_0"
+            }
+          },
+          "NA": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:us-east-1:007228707869:function:aeb4ac66-25c2-4f77-9c1c-c608c0bcaf45:Release_0"
+            }
+          },
+          "FE": {
+            "endpoint": {
+              "uri": "arn:aws:lambda:us-west-2:007228707869:function:aeb4ac66-25c2-4f77-9c1c-c608c0bcaf45:Release_0"
+            }
+          }
+        }
+      }
+    },
+    "permissions": [],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "locales": {
+        "en-US": {
+          "termsOfUseUrl": "https://www.hybridperformancemethod.com/pages/terms",
+          "privacyPolicyUrl": "https://www.hybridperformancemethod.com/pages/privacy-policy"
+        }
+      },
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "usesPersonalInfo": false
+    }
+  }
+}

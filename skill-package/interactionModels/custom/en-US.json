@@ -1,0 +1,91 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "hybrid question",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello",
+            "what\u0027s up",
+            "hey",
+            "what\u0027s up my babies"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "macros",
+          "slots": [
+            {
+              "name": "FoodSentence",
+              "type": "text"
+            }
+          ],
+          "samples": [
+            "ask hybrid {FoodSentence}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "16 ounces of beef"
+              }
+            },
+            {
+              "name": {
+                "value": "randome value"
+              }
+            },
+            {
+              "name": {
+                "value": "anything that i would say"
+              }
+            },
+            {
+              "name": {
+                "value": "4092"
+              }
+            },
+            {
+              "name": {
+                "value": "i have this"
+              }
+            },
+            {
+              "name": {
+                "value": "good morning"
+              }
+            }
+          ],
+          "name": "text"
+        }
+      ]
+    }
+  },
+  "version": "10"
+}
