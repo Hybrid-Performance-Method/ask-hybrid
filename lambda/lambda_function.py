@@ -75,8 +75,8 @@ class NutritionRequestHandler(AbstractRequestHandler):
         url = 'https://api.edamam.com/api/nutrition-data'
 
         params = {
-            'app_id': 'da0f7443',
-            'app_key': '50dee54b60a3301ca8da3f7d7026e812',  # free api access
+            'app_id': os.environ['EDAMAM_ID'],
+            'app_key': os.environ['EDAMAM_KEY'],  # free api access
             'ingr': slot_value,
             'nutrition-type': 'logging'
         }
