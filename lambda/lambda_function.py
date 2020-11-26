@@ -99,8 +99,6 @@ class NutritionRequestHandler(AbstractRequestHandler):
             speak_output = "Either you didn't select a valid food, or it has no calories,\
             which means it is not food. Please pick a real food."
 
-
-
         card_title = "Hybrid Nutrition Tracker Assistant"
 
         return handler_input.response_builder.speak(speak_output).set_card(
