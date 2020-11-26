@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-
-# This sample demonstrates handling intents from an Alexa skill using the Alexa Skills Kit SDK for Python.
-# Please visit https://alexa.design/cookbook for additional examples on implementing slots, dialog management,
-# session persistence, api calls, and more.
-# This sample is built using the handler classes approach in skill builder.
 import logging
 import ask_sdk_core.utils as ask_utils
 import requests
@@ -75,8 +69,8 @@ class NutritionRequestHandler(AbstractRequestHandler):
         url = 'https://api.edamam.com/api/nutrition-data'
 
         params = {
-            'app_id': 'da0f7443',
-            'app_key': '50dee54b60a3301ca8da3f7d7026e812',  # free api access
+            'app_id': 'da0f7443', # free api access for now. add your own get more mileage
+            'app_key': '50dee54b60a3301ca8da3f7d7026e812',  
             'ingr': slot_value,
             'nutrition-type': 'logging'
         }
@@ -93,7 +87,7 @@ class NutritionRequestHandler(AbstractRequestHandler):
             measure = ingredient['measure']
             food_name = ingredient['foodMatch']
             # cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
-            speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat. oy".format(
+            speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat.".format(
                 food_quantity, measure, food_name, protein, carbs, fat)
         else:
             speak_output = "Either you didn't select a valid food, or it has no calories,\
