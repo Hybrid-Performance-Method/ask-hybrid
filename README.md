@@ -16,15 +16,19 @@ If you're not familiar with the alexa voice model or lambda functions,
 check out the references below.
 
 
-# Dependencies
+## Dependencies
 - Amazon Alexa
 - Edamam Nutrition Analysis API
 
-# Installation
+## Installation
 - We encorague forks
 - install vs code Alexa VS code extension to test changes alexa voice model
 in the simulator.
 - Create a developer account on edamam.com to get API keys.
+
+## Testing
+- commit changes to master and deploy from the alex skill plugin, or by 
+pushing to the origin remote master.
 
 ## Contributing
 Just open up an issue and and let us know features you would like to see. 
