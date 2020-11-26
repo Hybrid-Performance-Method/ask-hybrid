@@ -1,9 +1,7 @@
 import logging
 import ask_sdk_core.utils as ask_utils
 import requests
-import urllib.parse
 import json
-import os
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
