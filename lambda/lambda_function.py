@@ -69,31 +69,34 @@ class NutritionRequestHandler(AbstractRequestHandler):
         url = 'https://api.edamam.com/api/nutrition-data'
 
         params = {
-            'app_id': 'da0f7443', # free api access for now. add your own get more mileage
-            'app_key': '50dee54b60a3301ca8da3f7d7026e812',  
+            'app_id': 'da0f7443',  # free api access for now. add your own get more mileage
+            'app_key': '50dee54b60a3301ca8da3f7d7026e812',
             'ingr': slot_value,
             'nutrition-type': 'logging'
         }
 
         r = requests.get(url, params=params)
         data = json.loads(r.text)
+        ingredient = data['ingredients'][0]['parsed'][0]
 
         if data['calories'] != 0:
-            ingredient = data['ingredients'][0]['parsed'][0]
             protein = round(ingredient['nutrients']['PROCNT']['quantity'])
             carbs = round(ingredient['nutrients']['CHOCDF']['quantity'])
             fat = round(ingredient['nutrients']['FAT']['quantity'])
             food_quantity = ingredient['quantity']
             measure = ingredient['measure']
             food_name = ingredient['foodMatch']
-            # cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
-            speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat.".format(
-                food_quantity, measure, food_name, protein, carbs, fat)
+
+            if "calories" in slot_value:
+                cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
+                speak_output = "{} {} {} has about {} caloriesf.".format(
+                    food_quantity, measure, food_name, cals)
+            else:
+                speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat.".format(
+                    food_quantity, measure, food_name, protein, carbs, fat)
         else:
             speak_output = "Either you didn't select a valid food, or it has no calories,\
             which means it is not food. Please pick a real food."
-
-
 
         card_title = "Hybrid Nutrition Tracker Assistant"
 
