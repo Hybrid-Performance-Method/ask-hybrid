@@ -8,7 +8,7 @@ import logging
 import ask_sdk_core.utils as ask_utils
 import requests
 import urllib.parse
-import json 
+import json
 from ask_sdk_core.skill_builder import SkillBuilder
 from ask_sdk_core.dispatch_components import AbstractRequestHandler
 from ask_sdk_core.dispatch_components import AbstractExceptionHandler
@@ -23,6 +23,7 @@ logger.setLevel(logging.INFO)
 
 class LaunchRequestHandler(AbstractRequestHandler):
     """Handler for Skill Launch."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
 
@@ -31,64 +32,83 @@ class LaunchRequestHandler(AbstractRequestHandler):
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
         speak_output = "Welcome to the Hybrid Nutrition virtual assistant! How can I help you stay on track?"
-        
+
         return (
             handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .response
+            .speak(speak_output)
+            .ask(speak_output)
+            .response
         )
 
-class MacrosRequestHandler(AbstractRequestHandler):
-    """Handler for Macros Questions"""
+
+class NutritionRequestHandler(AbstractRequestHandler):
+    """
+    Handler class for nutrition requests.
+
+    Intent:
+        "Ask Hybrid"
+
+    Slot values:
+        Any sentance following "Ask Hybrid"
+
+    Return values:
+        Calories
+        nutrition
+        alternate response
+
+    Edamam api:
+    https://developer.edamam.com/edamam-docs-nutrition-api
+    """
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
 
         return ask_utils.is_intent_name("macros")(handler_input)
-    
-        
+
     def handle(self, handler_input):
         # type: (HandlerInput) -> Response
-        
-        # returns slot value 
+
+        # returns slot value
         slot = ask_utils.request_util.get_slot(handler_input, "FoodSentence")
         slot_value = slot.value
-        
+
         url = 'https://api.edamam.com/api/nutrition-data'
-        
+
         params = {
-            'app_id':'da0f7443', 
-            'app_key':'50dee54b60a3301ca8da3f7d7026e812',
+            'app_id': 'da0f7443',
+            'app_key': '50dee54b60a3301ca8da3f7d7026e812',
             'ingr': slot_value,
             'nutrition-type': 'logging'
         }
-        
+
         r = requests.get(url, params=params)
         data = json.loads(r.text)
-        
-        if data['calories'] == 0:
-            speak_output = "Either you didn't select a valid food, or it has no calories,\
-            which means it is not food. Please pick a real food."
-        else:
+
+        if data['calories'] != 0:
             ingredient = data['ingredients'][0]['parsed'][0]
             protein = round(ingredient['nutrients']['PROCNT']['quantity'])
-            carbs  = round(ingredient['nutrients']['CHOCDF']['quantity'])
+            carbs = round(ingredient['nutrients']['CHOCDF']['quantity'])
             fat = round(ingredient['nutrients']['FAT']['quantity'])
             food_quantity = ingredient['quantity']
             measure = ingredient['measure']
             food_name = ingredient['foodMatch']
             # cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
-            
-            speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat.".format(food_quantity, measure, food_name, protein, carbs, fat)
-            
+        else:
+            speak_output = "Either you didn't select a valid food, or it has no calories,\
+            which means it is not food. Please pick a real food."
+
+            speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat. oy".format(
+                food_quantity, measure, food_name, protein, carbs, fat)
+
         card_title = "Hybrid Nutrition Tracker Assistant"
-        
+
         return handler_input.response_builder.speak(speak_output).set_card(
             SimpleCard(card_title, speak_output)).set_should_end_session(False).response
 
-        
+
 class HelloWorldIntentHandler(AbstractRequestHandler):
     """Handler for Hello World Intent."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return ask_utils.is_intent_name("HelloWorldIntent")(handler_input)
@@ -99,15 +119,16 @@ class HelloWorldIntentHandler(AbstractRequestHandler):
 
         return (
             handler_input.response_builder
-                .speak(speak_output)
-                .set_should_end_session(False)
-                # .ask("add a reprompt if you want to keep the session open for the user to respond")
-                .response
+            .speak(speak_output)
+            .set_should_end_session(False)
+            # .ask("add a reprompt if you want to keep the session open for the user to respond")
+            .response
         )
 
 
 class HelpIntentHandler(AbstractRequestHandler):
     """Handler for Help Intent."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return ask_utils.is_intent_name("AMAZON.HelpIntent")(handler_input)
@@ -118,15 +139,16 @@ class HelpIntentHandler(AbstractRequestHandler):
 
         return (
             handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .set_should_end_session(False)
-                .response
+            .speak(speak_output)
+            .ask(speak_output)
+            .set_should_end_session(False)
+            .response
         )
 
 
 class CancelOrStopIntentHandler(AbstractRequestHandler):
     """Single handler for Cancel and Stop Intent."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return (ask_utils.is_intent_name("AMAZON.CancelIntent")(handler_input) or
@@ -138,13 +160,14 @@ class CancelOrStopIntentHandler(AbstractRequestHandler):
 
         return (
             handler_input.response_builder
-                .speak(speak_output)
-                .response
+            .speak(speak_output)
+            .response
         )
 
 
 class SessionEndedRequestHandler(AbstractRequestHandler):
     """Handler for Session End."""
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return ask_utils.is_request_type("SessionEndedRequest")(handler_input)
@@ -163,6 +186,7 @@ class IntentReflectorHandler(AbstractRequestHandler):
     for your intents by defining them above, then also adding them to the request
     handler chain below.
     """
+
     def can_handle(self, handler_input):
         # type: (HandlerInput) -> bool
         return ask_utils.is_request_type("IntentRequest")(handler_input)
@@ -174,9 +198,9 @@ class IntentReflectorHandler(AbstractRequestHandler):
 
         return (
             handler_input.response_builder
-                .speak(speak_output)
-                # .ask("add a reprompt if you want to keep the session open for the user to respond")
-                .response
+            .speak(speak_output)
+            # .ask("add a reprompt if you want to keep the session open for the user to respond")
+            .response
         )
 
 
@@ -185,6 +209,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
     stating the request handler chain is not found, you have not implemented a handler for
     the intent being invoked or included it in the skill builder below.
     """
+
     def can_handle(self, handler_input, exception):
         # type: (HandlerInput, Exception) -> bool
         return True
@@ -197,10 +222,10 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
         return (
             handler_input.response_builder
-                .speak(speak_output)
-                .ask(speak_output)
-                .set_should_end_session(False)
-                .response
+            .speak(speak_output)
+            .ask(speak_output)
+            .set_should_end_session(False)
+            .response
         )
 
 # The SkillBuilder object acts as the entry point for your skill, routing all request and response
@@ -216,7 +241,8 @@ sb.add_request_handler(HelpIntentHandler())
 sb.add_request_handler(CancelOrStopIntentHandler())
 sb.add_request_handler(SessionEndedRequestHandler())
 sb.add_request_handler(MacrosRequestHandler())
-sb.add_request_handler(IntentReflectorHandler()) # make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
+# make sure IntentReflectorHandler is last so it doesn't override your custom intent handlers
+sb.add_request_handler(IntentReflectorHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
 
 lambda_handler = sb.lambda_handler()
