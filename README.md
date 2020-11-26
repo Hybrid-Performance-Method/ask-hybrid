@@ -1,7 +1,7 @@
 # Hybrid Nutrition Virtual Assitant
 
-We wanted to make nutrition easy to track for everyone, so we thought
-we would upgrade Alexa's ability to answer nutrition related questions.
+Staying on track with nutrition should be as simple as asking a question,  
+so we decided to upgrade Amazon Alexa's ability to answer nutrition related questions.
 
 Alexa skills are just voice-to-text in front of an AWS lambda function,
 so this function gets a nutrition sentance (or utterance in alexa parlance)
@@ -22,7 +22,7 @@ check out the references below.
 - We encorague forks
 - install vs code Alexa VS code extension to test changes alexa voice model
 in the simulator.
-- Create a developer account on edamam.com to get API keys.
+- Create a developer account on edamam.com to get free API keys for the Nutrition Analysis API.
 
 ## Testing
 - Commit changes to master and deploy your own development version of the skill from the alex skill plugin, or simply pushing to your own alexa master.
