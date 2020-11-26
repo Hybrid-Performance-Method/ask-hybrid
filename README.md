@@ -11,10 +11,8 @@ and returns the result to the speaker.
 The goal is to make tracking macros with Hybrid Nutrition, or any nutrition service,
 easier with the speach technology powered by Alexa. 
 
-
 If you're not familiar with the alexa voice model or lambda functions,
 check out the references below.
-
 
 ## Dependencies
 - Amazon Alexa
@@ -27,13 +25,12 @@ in the simulator.
 - Create a developer account on edamam.com to get API keys.
 
 ## Testing
-- commit changes to master and deploy from the alex skill plugin, or by 
-pushing to the origin remote master.
+- Commit changes to master and deploy your own development version of the skill from the alex skill plugin, or simply pushing to your own alexa master.
 
 ## Contributing
-Just open up an issue and and let us know features you would like to see. 
-We are open to pull requests.
+Interested in a feature? create an issue and and let us know features you would like to see.  
+Want to build a feature? Pull requests are welcome.
 
 ## References
-[Alexa Documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/steps-to-build-a-custom-skill.html)
+[Alexa Documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/steps-to-build-a-custom-skill.html)  
 [Edamam Food API](https://developer.edamam.com/)
