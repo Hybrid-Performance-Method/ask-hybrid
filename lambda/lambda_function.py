@@ -87,7 +87,7 @@ class NutritionRequestHandler(AbstractRequestHandler):
 
             if "calories" in slot_value:
                 cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
-                speak_output = "{} {} {} has about {} caloriesf.".format(
+                speak_output = "{} {} {} has about {} calories.".format(
                     food_quantity, measure, food_name, cals)
             else:
                 speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat.".format(
