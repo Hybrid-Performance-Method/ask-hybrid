@@ -13,7 +13,7 @@ easier with the speach technology powered by Alexa.
 
 
 If you're not familiar with the alexa voice model or lambda functions,
-check out the references below
+check out the references below.
 
 
 # Dependencies
@@ -24,10 +24,11 @@ check out the references below
 - We encorague forks
 - install vs code Alexa VS code extension to test changes alexa voice model
 in the simulator.
+- Create a developer account on edamam.com to get API keys.
 
 ## Contributing
-Just open up an issue and and let us know what you want to work on. 
-We are open to pull requests
+Just open up an issue and and let us know features you would like to see. 
+We are open to pull requests.
 
 ## References
 [Alexa Documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/steps-to-build-a-custom-skill.html)
