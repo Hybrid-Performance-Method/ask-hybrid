@@ -76,17 +76,18 @@ class NutritionRequestHandler(AbstractRequestHandler):
         r = requests.get(url, params=params)
         data = json.loads(r.text)
         ingredient = data['ingredients'][0]['parsed'][0]
+        nutrients = ingredient['nutrients']
 
         if data['calories'] != 0:
-            protein = round(ingredient['nutrients']['PROCNT']['quantity'])
-            carbs = round(ingredient['nutrients']['CHOCDF']['quantity'])
-            fat = round(ingredient['nutrients']['FAT']['quantity'])
+            protein = round(nutrients['PROCNT']['quantity'])
+            carbs = round(nutrients['CHOCDF']['quantity'])
+            fat = round(nutrients['FAT']['quantity'])
             food_quantity = ingredient['quantity']
             measure = ingredient['measure']
             food_name = ingredient['foodMatch']
 
             if "calories" in slot_value:
-                cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
+                cals = round(nutrients['ENERC_KCAL']['quantity'])
                 speak_output = "{} {} {} has about {} calories.".format(
                     food_quantity, measure, food_name, cals)
             else:
