@@ -93,12 +93,13 @@ class NutritionRequestHandler(AbstractRequestHandler):
             measure = ingredient['measure']
             food_name = ingredient['foodMatch']
             # cals = round(ingredient['nutrients']['ENERC_KCAL']['quantity'])
+            speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat. oy".format(
+                food_quantity, measure, food_name, protein, carbs, fat)
         else:
             speak_output = "Either you didn't select a valid food, or it has no calories,\
             which means it is not food. Please pick a real food."
 
-            speak_output = "{} {} {} has about {} grams of protein, {} grams of carbohydrates, and {} grams of fat. oy".format(
-                food_quantity, measure, food_name, protein, carbs, fat)
+
 
         card_title = "Hybrid Nutrition Tracker Assistant"
 
