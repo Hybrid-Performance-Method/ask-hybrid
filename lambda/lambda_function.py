@@ -215,7 +215,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         # type: (HandlerInput, Exception) -> Response
         logger.error(exception, exc_info=True)
 
-        speak_output = "Sorry, I missed that. Please ask hybrid again."
+        speak_output = "Sorry, I don't think I heard that right. Please ask hybrid again."
 
         return (
             handler_input.response_builder
