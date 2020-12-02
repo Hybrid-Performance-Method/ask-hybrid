@@ -1,5 +1,6 @@
 # Hybrid Nutrition Virtual Assitant
 
+![nutrition logo](/nutrition.png)
 
 Staying on track with nutrition should be as simple as asking a question, so we decided to upgrade Amazon Alexa's ability to answer nutrition related questions.
 
