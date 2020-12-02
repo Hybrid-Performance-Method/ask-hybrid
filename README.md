@@ -27,5 +27,6 @@ Interested in a feature? create an issue and and let us know features you would 
 Want to build a feature? Pull requests are welcome. Submit your pull request along with Alexa simulator results. 
 
 ## References
-[Alexa Documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/steps-to-build-a-custom-skill.html)  
+[Alexa Documentation](https://developer.amazon.com/en-US/docs/alexa/custom-skills/steps-to-build-a-custom-skill.html)
+  
 [Edamam Food API](https://developer.edamam.com/)
