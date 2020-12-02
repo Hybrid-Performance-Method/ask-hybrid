@@ -13,7 +13,7 @@ If you're not familiar with the alexa voice model or Lambda functions, read the 
 - Edamam Nutrition Analysis API
 
 ## Installation
-- We encorague forks
+- Fork or downloard with. `git clone 
 - The Preferred method of Testing and Development is via the Alexa VScode extension. 
 - Create a developer account on edamam.com to get free API keys for the Nutrition Analysis API.
 
