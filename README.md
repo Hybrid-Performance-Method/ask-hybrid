@@ -6,7 +6,7 @@ Staying on track with nutrition should be as simple as asking a question, so we 
 The goal is to make tracking macros with Hybrid Nutrition, or any nutrition service,
 easier with the speach technology powered by Alexa. 
 
-If you're not familiar with the alexa voice model or lambda functions, read the [Ask Hybrid Skill Blog](https://www.notion.so/Ask-Hybrid-on-Amazon-Alexa-8e9d26ced15346c68f3d9186cc3a7142) and check out the references below.
+If you're not familiar with the alexa voice model or Lambda functions, read the [Ask Hybrid Skill Blog](https://www.notion.so/Ask-Hybrid-on-Amazon-Alexa-8e9d26ced15346c68f3d9186cc3a7142) and check out the references below.
 
 ## Dependencies
 - Amazon Alexa
