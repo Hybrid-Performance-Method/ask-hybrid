@@ -13,8 +13,8 @@ If you're not familiar with the alexa voice model or Lambda functions, read the 
 - Edamam Nutrition Analysis API
 
 ## Installation
-- Fork or downloard with. `git clone 
-- The Preferred method of Testing and Development is via the Alexa VScode extension. 
+- Download the code `git clone https://github.com/Hybrid-Performance-Method/ask-hybrid.git`
+- The Preferred method of local testing and development is via the [Alexa Skills Toolkit VScode extension](https://developer.amazon.com/en-US/docs/alexa/ask-toolkit/vs-code-ask-skills.html). 
 - Create a developer account on edamam.com to get free API keys for the Nutrition Analysis API.
 
 ## Testing
